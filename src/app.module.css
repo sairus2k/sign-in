@@ -1,9 +1,9 @@
 .app {
-  background-color: var(--whisper);
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100%;
+  background-color: var(--whisper);
 
   @media (--mobile-breakpoint) {
     justify-content: center;
@@ -11,27 +11,27 @@
 }
 
 .card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 4px;
   background: var(--white);
   box-shadow: var(--elevation-medium);
-  border-radius: 4px;
-  max-width: 450px;
-  width: 100%;
   overflow: hidden;
 }
 
 .card_header {
-  background-color: var(--primary-transparent);
-  background-image: url("./assets/login.png");
-  background-size: contain;
-  background-position: center right;
-  background-repeat: no-repeat;
   padding: 24px;
   color: var(--primary);
+  background-color: var(--primary-transparent);
+  background-image: url('./assets/login.png');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
 }
 
 .card_title {
-  font-size: 20px;
   margin-bottom: 8px;
+  font-size: 20px;
 }
 
 .card_body {
@@ -54,9 +54,9 @@
 }
 
 .footer {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
   padding: 36px 0;
+  text-align: center;
+  row-gap: 16px;
 }

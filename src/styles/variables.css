@@ -4,14 +4,14 @@
 :root {
   /* Colors */
   --primary: #556ee6;
-  --primary-hover: #4B61CC;
-  --primary-active: #5E79FF;
+  --primary-hover: #4b61cc;
+  --primary-active: #5e79ff;
   --primary-transparent: #d4daf8;
   --error: #ff4561;
   --outline: #661e28;
   --black: #000;
-  --grey: #ADB5BD;
-  --ghost: #CED4DA;
+  --grey: #adb5bd;
+  --ghost: #ced4da;
   --whisper: #f8f8fb;
   --white: #fff;
 

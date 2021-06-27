@@ -1,12 +1,12 @@
 .button {
   display: block;
-  background-color: var(--primary);
-  border-radius: 4px;
-  text-align: center;
   padding: 8px 12px;
   color: var(--white);
-  appearance: none;
+  text-align: center;
   border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  appearance: none;
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
