@@ -11,6 +11,21 @@
   },
   "rules": {
     "import/prefer-default-export": "off",
+    "react/button-has-type": "off",
     "react/prop-types": "off"
-  }
+  },
+  "overrides": [{
+    "files": ["*.config.js", "*.config.ts"],
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "global-require": "off",
+      "import/no-extraneous-dependencies": "off"
+    }
+  }]
 }

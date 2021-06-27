@@ -1,96 +1,43 @@
-import React, { FormEvent, ReactElement, useRef, useState } from 'react'
-import './app.css'
-import { Input } from './components/input'
-import { getValues, validate, Validation } from './lib/form'
-import { Checkbox } from './components/checkbox'
+/* eslint-disable jsx-a11y/anchor-is-valid */
 
-type InputName = keyof LoginFormState
-type LoginFormErrors = Record<InputName, string>
-type LoginFormState = typeof defaultValues
+import React, { useState, VFC } from 'react'
+import classes from './app.module.css'
+import { LoginFormState, SignIn } from './sign-in/sign-in'
+import { Lock } from './uikit/icons'
 
-const validation: Validation<LoginFormState> = {
-  email: {
-    required: 'Please enter your email',
-    pattern: {
-      value: /^\S+@\S+$/,
-      message: 'Please enter valid email address',
-    },
-  },
-  password: {
-    required: 'Please enter your password',
-    minLength: {
-      value: 6,
-      message: 'Password should contain at least 6 symbols',
-    },
-  },
-  rememberMe: {
-    validate: (value: unknown) =>
-      value === true ? undefined : 'Please confirm',
-  },
-}
-
-const defaultValues = Object.freeze({
-  email: '',
-  password: '',
-  rememberMe: false,
-})
-
-export const App = (): ReactElement => {
-  const formRef = useRef<HTMLFormElement>(null)
-
-  const [errors, setErrors] = useState<Partial<LoginFormErrors>>({})
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault()
-
-    const { current: formElement } = formRef
-
-    if (!formElement) {
-      return
-    }
-
-    const validationErrors = validate(formElement, validation, defaultValues)
-
-    if (validationErrors !== undefined) {
-      setErrors(validationErrors)
-    } else {
-      const values = getValues(formElement, defaultValues)
-      setErrors({})
+export const App: VFC = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const handleSubmit = (values: LoginFormState) => {
+    setIsSubmitting(true)
+    setTimeout(() => {
+      setIsSubmitting(false)
       alert(`Signing in with email "${values.email}"`)
-    }
+    }, 2000)
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} ref={formRef} noValidate>
-        <Input
-          type="email"
-          name="email"
-          label="Your email"
-          placeholder="Enter your email"
-          required
-          autoComplete="username"
-          defaultValue={defaultValues.email}
-          error={errors.email}
-        />
-        <Input
-          type="password"
-          name="password"
-          label="Your password"
-          placeholder="Enter your password"
-          required
-          autoComplete="current-password"
-          defaultValue={defaultValues.password}
-          error={errors.password}
-        />
-        <Checkbox
-          name="rememberMe"
-          label="Agree"
-          defaultValue={defaultValues.rememberMe}
-          error={errors.rememberMe}
-        />
-        <button type="submit">Sign In</button>
-      </form>
+    <div className={classes.app}>
+      <div className={classes.card}>
+        <header className={classes.card_header}>
+          <div className={classes.card_title}>Welcome Back!</div>
+          <div className={classes.card_subTitle}>Sign in to continue</div>
+        </header>
+        <div className={classes.card_body}>
+          <SignIn isSubmitting={isSubmitting} onSubmit={handleSubmit} />
+        </div>
+        <div className={classes.card_footer}>
+          <a href="#" className={classes.card_footerLink}>
+            <Lock />
+            Forgot your password?
+          </a>
+        </div>
+      </div>
+      <div className={classes.footer}>
+        <div>
+          Don’t have an account ? <a href="#">Signup now</a>
+        </div>
+        <div>© 2020 Crafted and designed by 10ursabanoglu. 🎉</div>
+      </div>
     </div>
   )
 }

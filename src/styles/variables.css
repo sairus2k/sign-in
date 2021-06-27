@@ -1,0 +1,20 @@
+/* Media */
+@custom-media --mobile-breakpoint (min-width: 768px);
+
+:root {
+  /* Colors */
+  --primary: #556ee6;
+  --primary-hover: #4B61CC;
+  --primary-active: #5E79FF;
+  --primary-transparent: #d4daf8;
+  --error: #ff4561;
+  --outline: #661e28;
+  --black: #000;
+  --grey: #ADB5BD;
+  --ghost: #CED4DA;
+  --whisper: #f8f8fb;
+  --white: #fff;
+
+  /* Elevation */
+  --elevation-medium: 0 12px 24px rgba(18, 38, 63, 0.05);
+}

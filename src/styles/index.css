@@ -1,0 +1,42 @@
+@import url('fonts.css');
+@import url('variables.css');
+
+html, body, #root {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: #f8f8fb;
+  font-family: Poppins, system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a, button, input {
+  &:focus {
+    outline: 2px dotted var(--outline);
+  }
+  &:focus:not(:focus-visible) {
+    outline: 0
+  }
+  &:focus-visible {
+    outline: 2px dotted var(--outline);
+  }
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

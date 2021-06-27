@@ -1,0 +1,20 @@
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input_label {
+  margin-bottom: 8px;
+}
+
+.input_input {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--ghost);
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.input_error {
+  color: var(--error);
+}

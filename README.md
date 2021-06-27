@@ -1,11 +1,11 @@
 # Sign In form
 
-Based on [design](https://www.figma.com/community/file/894341396318299423/Sign-In)
-by [uixMadara](https://www.figma.com/@uixmadara)
+Based on [design](https://www.figma.com/community/file/873478062998472829/Sign-in-Page)
+by [10ur](https://www.figma.com/@10ursabanoglu)
 
 Key features:
 - React and typescript
-- Without 3rd party UI libraries
+- Without 3rd party libraries
 - Vite as a bundler
 - Responsive
 - Accessible

@@ -1,24 +1,19 @@
 import React, { VFC } from 'react'
-import { useId } from '../lib/use-id'
+import { useId } from '../../lib/use-id'
+import classes from './checkbox.module.css'
 
-interface InputProps {
+interface CheckboxProps {
   label: string
   name: string
-  placeholder?: string
-  type?: 'text' | 'email' | 'password'
   required?: boolean
-  autoComplete?: string
-  defaultValue?: string
+  defaultValue?: boolean
   error?: string
 }
 
-export const Input: VFC<InputProps> = ({
+export const Checkbox: VFC<CheckboxProps> = ({
   label,
   name,
-  placeholder,
-  type = 'text',
-  required = false,
-  autoComplete,
+  required,
   defaultValue,
   error,
 }) => {
@@ -26,22 +21,23 @@ export const Input: VFC<InputProps> = ({
   const hasError = error !== undefined
   const alertId = `alert-${id}`
   return (
-    <div>
-      <label htmlFor={id}>{label}</label>
+    <div className={classes.checkbox}>
       <input
         id={id}
         name={name}
-        type={type}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
+        type="checkbox"
         required={required}
-        defaultValue={defaultValue}
+        defaultChecked={defaultValue}
         aria-required={required}
         aria-invalid={hasError}
         aria-describedby={hasError ? alertId : undefined}
+        className={classes.checkbox_input}
       />
+      <label htmlFor={id} className={classes.checkbox_label}>
+        {label}
+      </label>
       {hasError && (
-        <div role="alert" aria-atomic id={alertId}>
+        <div role="alert" aria-atomic id={alertId} className={classes.checkbox_error}>
           {error}
         </div>
       )}

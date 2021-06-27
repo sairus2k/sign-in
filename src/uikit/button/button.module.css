@@ -1,0 +1,19 @@
+.button {
+  display: block;
+  background-color: var(--primary);
+  border-radius: 4px;
+  text-align: center;
+  padding: 8px 12px;
+  color: var(--white);
+  appearance: none;
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--primary-hover);
+  }
+
+  &:active {
+    background-color: var(--primary-active);
+  }
+}

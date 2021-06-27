@@ -1,9 +1,11 @@
 {
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "extract:icons": "npx @svgr/cli --typescript --out-dir src/uikit/icons  src/assets/icons/"
   },
   "dependencies": {
     "react": "^17.0.0",
@@ -21,6 +23,8 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "postcss": "^8.3.5",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.1",
     "typescript": "^4.3.2",
     "vite": "^2.3.8"
